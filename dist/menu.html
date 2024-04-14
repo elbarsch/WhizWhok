@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link rel="stylesheet" href="../src/output.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  </head>
+  <body class="m-0 p-0 box-border overflow-x-hidden font-body-font">
+    <div id="hero" class="">
+      <header id="header" class="transition-all fixed duration-300 ease-in-out shadow-md top-0 left-0 z-50 flex justify-between w-full bg-[#0c1222] text-white p-5">
+        <div id="title">
+          <h1>WhizWok</h1>
+        </div>
+        <nav class="relative">
+          <ul class="lg:flex md:flex hidden text-white">
+            <li><a href="#" class="md-5"><span class="material-symbols-outlined">shopping_cart</span></a></li>
+            <li><a href="#" class="lg:m-5 md:m-5 text-orange-500 ">Home</a></li>
+            <li><a href="#" class="lg:m-5 md:m-5">About</a></li>
+            <li><a href="#" class="lg:m-5 md:m-5">Contact</a></li>
+            <li>
+              <a href="" class="lg:m-5 font-semibold md:m-5 outline-none bg-orange-500 duration-150 transition-all p-2 hover:bg-gradient-to-r from-orange-500 to-[#f7b733] text-white rounded-md">
+              BOOK A TABLE
+              </a>
+            </li>
+          </ul>
+          <button id="openMenu" class="lg:hidden md:hidden text-white">
+          <span class="material-symbols-outlined">menu</span>
+          </button>            
+        </nav>
+        <!--Mobile menu start-->
+        <ul id="toggleMobileMenu" class="hr bg-[#0c1222] hidden absolute left-0 top-[4rem] h-48 w-full lg:hidden md:hidden text-white">
+          <li><a href="#" class="flex items-center mt-2"><span class="material-symbols-outlined pr-3">home</span>Contact</a></li>
+          <li><a href="#" class="flex items-center mt-2"><span class="material-symbols-outlined pr-3">info</span>About</a></li>
+          <li><a href="#" class="flex items-center mt-2"><span class="material-symbols-outlined pr-3">shopping_bag</span>Order</a></li>
+          <li><a href="#" class="flex items-center mt-2"><span class="material-symbols-outlined pr-3">contact_support</span>Support</a></li>
+          <li class="mt-5">
+            <a href="" class=" outline-none transition-all font-semibold duration-300 bg-orange-500 p-2 hover:bg-gradient-to-r from-orange-500 to-[#f7b733] hover:text-black text-white rounded-sm">
+            BOOK A TABLE
+            </a>
+          </li>
+        </ul>
+      </header>
+      <!--HERO START-->
+      <!--HERO END-->
+    </div>
+    <!--Menu section start-->
+    <section class="h-full py-36 w-full bg-[#0c1222] text-white relative">
+      <div>
+        <h1 class="font-second-font text-center text-6xl translate-y-10 -rotate-[3deg]">Our menu</h1>
+      </div>
+      <div class="flex items-center justify-center text-white py-20">
+       <button data-id="all" type="button" class="filter-btn text-white m-3 bg-orange-500 outline-none p-3 text-center border-none rounded-md">All</button>
+       <button data-id="breakfast" type="button" class="filter-btn text-white m-3 bg-orange-500 outline-none p-3 text-center border-none rounded-md">Breakfast</button>
+       <button data-id="lunch" type="button" class="filter-btn text-white m-3 bg-orange-500 outline-none p-3 text-center border-none rounded-md">Lunch</button>
+       <button data-id="dinner" type="button" class="filter-btn text-white m-3 bg-orange-500 outline-none p-3 text-center border-none rounded-md">Dinner</button>
+      </div>
+      <div id="section-menu" class="flex justify-center py-20 flex-wrap w-full">
+      </div>     
+    </section>
+    <!--Menu section end-->
+    <script src="../dist/js-scripts/menu.js"></script>
+  </body>
+</html>
