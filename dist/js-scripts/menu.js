@@ -30,36 +30,26 @@ const menu = [
         img:'https://www.kokenmetmaarten.nl/wp-content/uploads/2022/07/Bami-Goreng3.jpg',
         category:'lunch'
         
-    }
+    },
+    {
+      id: 2,
+      title: 'Bami Goreng',
+      alt: 'Bami Goreng image',
+      price: 19.99,
+      description: 'Tomato, mozzarella, basil',
+      img:'https://www.kokenmetmaarten.nl/wp-content/uploads/2022/07/Bami-Goreng3.jpg',
+      category:'dinner'
+      
+  }
 ]
-const sectionMenu = _('section-menu');
-const filterBtns = document.querySelectorAll('.filter-btn')
+const sectionMenu = _('section-menu')
+const btnContainer = _('btn-container')
 
 
 //load all menu items from array
 window.addEventListener('DOMContentLoaded',function(){
-    DisplayMenu(menu);  
-})
-
-//filter items
-filterBtns.forEach(function(btn){
-    btn.addEventListener('click',function(e){
-        //get the button via dataset
-        const category = e.currentTarget.dataset.id
-        //filter the menu items
-        const menuCategory = menu.filter(function(menuItem) {
-            //if the menu item category is equal to the category return such menu item
-            if(menuItem.category === category){
-                return menuItem
-            }
-        })
-        if(category === 'all'){
-            DisplayMenu(menu)
-        }
-        else{
-            DisplayMenu(menuCategory)
-        }
-    })
+    DisplayMenu(menu)
+    displayMenuButtons()
 })
 
 function DisplayMenu(menuItems){
@@ -110,4 +100,39 @@ function DisplayMenu(menuItems){
     })
     displayMenu = displayMenu.join('');
     sectionMenu.innerHTML = displayMenu;
+}
+
+function displayMenuButtons(){
+  const categories = menu.reduce(function (values, item){
+    if(!values.includes(item.category)){
+        values.push(item.category)
+    }
+    return values
+},['all'])
+
+const categoryBtns = categories.map(function(category){
+    return `<button data-id=${category} type="button" class="filter-btn text-white m-3 bg-orange-500 outline-none p-3 text-center border-none rounded-md">${category}</button>`
+}).join('')
+btnContainer.innerHTML = categoryBtns
+const filterBtns = document.querySelectorAll('.filter-btn')
+
+filterBtns.forEach(function(btn){
+  btn.addEventListener('click',function(e){
+      //get the button via dataset
+      const category = e.currentTarget.dataset.id
+      //filter the menu items
+      const menuCategory = menu.filter(function(menuItem) {
+          //if the menu item category is equal to the category return such menu item
+          if(menuItem.category === category){
+              return menuItem
+          }
+      })
+      if(category === 'all'){
+          DisplayMenu(menu)
+      }
+      else{
+          DisplayMenu(menuCategory)
+      }
+  })
+})
 }
